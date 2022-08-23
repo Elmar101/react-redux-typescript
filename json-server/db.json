@@ -1,16 +1,16 @@
 {
-    "events": [
-      {
-        "id": 1,
-        "title": "Jogging",
-        "dateStart": "2020-01-29T17:41:28.652Z",
-        "dateEnd": "2020-01-29T18:41:28.652Z"
-      },
-      {
-        "title": "Learning TypeScript",
-        "dateStart": "2020-01-29T19:00:28.652Z",
-        "dateEnd": "2020-01-29T20:00:28.652Z",
-        "id": 2
-      }
-    ]
-  }
+  "events": [
+    {
+      "title": "React Redux",
+      "dateStart": "2022-08-23T07:22:17.672Z",
+      "dateEnd": "2022-08-23T07:22:20.300Z",
+      "id": 5
+    },
+    {
+      "title": "React Redux",
+      "dateStart": "2022-08-23T07:22:26.258Z",
+      "dateEnd": "2022-08-23T07:22:30.932Z",
+      "id": 6
+    }
+  ]
+}

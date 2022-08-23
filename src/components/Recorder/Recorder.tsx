@@ -4,12 +4,11 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux'
 import { selectDateStart, startFn, stopFn } from '../../redux/recorder';
 import "./Recorder.css";
+import { addZero } from '../../libs/util/util';
+import { createUserEvents } from '../../redux/user-events';
 
-const addZero = (num: number) => {
-    return num < 10 ? `0${num}` : `${num}`;
-}
 const Recorder = () => {
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
   const dateStart = useSelector(selectDateStart);
   const started = dateStart !=="";
   const interval = useRef<number>();
@@ -18,6 +17,7 @@ const Recorder = () => {
   const handleClick = () => {
     if(started){
         window.clearInterval(interval.current);
+        dispatch(createUserEvents())
         dispatch(stopFn());
     }else {
         dispatch(startFn());
