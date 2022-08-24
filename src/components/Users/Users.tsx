@@ -13,10 +13,10 @@ const Users = () => {
   return (
     <>
       <div>Users</div>
-      <div>{ data?.length && data.map((user)=> (<div key={`user${user.id}`}>
+      <div style={{display: "flex" , flexWrap: "wrap"}}>{ data?.length && data.map((user)=> (<div key={`user${user.id}`} style={{width: "100px" , margin: "10px"}}>
         <h3>Id: {user.id}</h3>
-        <h3>Name: {user.login}</h3>
-        <img src={user.avatar_url} alt="no-img" style={{width: "120px"}}/>
+        <h3>Name: {user.login.substring(0,6)}</h3>
+        <img src={user.avatar_url} alt="no-img" style={{width: "120px" , height: "120px"}}/>
         <br/>
       </div>))}</div>
     </>

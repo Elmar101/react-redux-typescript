@@ -19,8 +19,8 @@ function App() {
      <hr/>
      <h1> USERS COMPONENT</h1>
      <div style={{display: "flex"}}>
-        <div style={{width: "25%"}}>  <Users/> </div>
-        <div> <Events/> </div>
+        <div style={{width: "50%"}}>  <Users/> </div>
+        <div style={{marginLeft: "20px"}}> <Events/> </div>
      </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid'
-import { useAddEventMutation, useFetchEventsQuery } from '../../../redux-toolkit/features/rtk-query/events/event-slice';
+import { useAddEventMutation} from '../../../redux-toolkit/features/rtk-query/events/event-slice';
 import { UserEvent } from '../../../redux/user-events';
 const event: UserEvent = {
     id: +nanoid(),
@@ -11,10 +11,8 @@ const event: UserEvent = {
 
 export const AddEvent = () => {
   const [addEvent] = useAddEventMutation();
-  //const {refetch} =  useFetchEventsQuery();
   const handleClick = async (): Promise<void> => {
     await addEvent(event);
-    //refetch();
   }
 
   return (

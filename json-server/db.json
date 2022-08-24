@@ -1,40 +1,16 @@
 {
   "events": [
     {
-      "title": "Learning TypeScript",
-      "dateStart": "2020-03-18T19:00:28.652Z",
-      "dateEnd": "2020-03-18T20:00:28.652Z",
-      "id": 1
-    },
-    {
-      "title": "Learning Ts",
-      "dateStart": "2020-03-19T11:59:03.156Z",
-      "dateEnd": "2020-03-19T11:59:04.144Z",
+      "title": "Update",
+      "dateStart": "2022-08-23T11:07:58.351Z",
+      "dateEnd": "2022-08-23T11:08:04.784Z",
       "id": 2
     },
     {
-      "title": "React Redux",
-      "dateStart": "2022-08-23T11:07:48.026Z",
-      "dateEnd": "2022-08-23T11:07:54.582Z",
+      "title": "Update",
+      "dateStart": "2022-08-23T11:07:58.351Z",
+      "dateEnd": "2022-08-23T11:08:04.784Z",
       "id": 3
-    },
-    {
-      "id": 42,
-      "title": "Cm_6lBWyxqjVYeve1vDBh",
-      "dateStart": "2022-08-23T11:07:58.351Z",
-      "dateEnd": "2022-08-23T11:08:04.784Z"
-    },
-    {
-      "id": 43,
-      "title": "Cm_6lBWyxqjVYeve1vDBh",
-      "dateStart": "2022-08-23T11:07:58.351Z",
-      "dateEnd": "2022-08-23T11:08:04.784Z"
-    },
-    {
-      "id": 44,
-      "title": "Cm_6lBWyxqjVYeve1vDBh",
-      "dateStart": "2022-08-23T11:07:58.351Z",
-      "dateEnd": "2022-08-23T11:08:04.784Z"
     }
   ]
 }
