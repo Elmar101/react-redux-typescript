@@ -22,7 +22,6 @@ function App() {
         <div style={{width: "25%"}}>  <Users/> </div>
         <div> <Events/> </div>
      </div>
-    
     </div>
   );
 }
