@@ -1,1 +1,2 @@
-"dev": "npx concurrently -k \"npm run json-server \" \"npm start \""
+first => npm run json-server
+second => npm start
