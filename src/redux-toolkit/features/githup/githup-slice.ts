@@ -10,13 +10,13 @@ const githupSlice = createSlice({
     name: "githup",
     initialState,
     reducers: {
-        addFavourites: (state , action: PayloadAction<string>) => {
+        addFavourites: (state , action: PayloadAction<string>): IGithupState => {
             return {
                 ...state,
                 favourities: [...state.favourities , action.payload]
             }
         },
-        removeFavorities: (state , action: PayloadAction<string>) => {
+        removeFavorities: (state , action: PayloadAction<string>): IGithupState => {
             return {
                 ...state,
                 favourities: state.favourities.filter(favourity=> favourity !== action.payload)      
