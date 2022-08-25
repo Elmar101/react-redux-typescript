@@ -32,12 +32,9 @@ export default function recorderReducer(
 ) {
   switch (action.type) {
     case START:
-      console.log(action.type);
-      console.log("new Date().toISOString(): ", new Date().toISOString());
       return { ...state, dateStart: new Date().toISOString() };
 
     case STOP:
-      console.log(action.type);
       return { ...state, dateStart: "" };
     default:
       return state;

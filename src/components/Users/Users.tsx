@@ -5,7 +5,7 @@ import SearchUser from "./SearchUser";
 const Users = () => {
   const { data, isFetching , isError ,error} = useFetchUsersQuery();
   if(isError){
-    console.log(error);
+   
   }
   if(isFetching){
     return <div> ...Fetching Data </div>
