@@ -10,6 +10,7 @@ interface  ISEARCHSERVERRESPONSE<T>{
 
 export const UsersSlice = createApi({
   reducerPath: "users",
+  refetchOnFocus: true,
   baseQuery: fetchBaseQuery({ baseUrl: USER_BASE_API }),
   endpoints: (builder) => ({
     fetchUsers: builder.query<USER[], void>({
@@ -35,3 +36,16 @@ export const UsersSlice = createApi({
 });
 
 export const { useFetchUsersQuery, useSearchUsersQuery } = UsersSlice;
+
+/*/
+  refetchOnFocus: true This props reflesh Browser all come back 
+  setUpListener(store.dispatc) use in store.ts file
+
+  use Component as down 
+   const {isLoading , isSuccess , isError , data , error} = useSearchUsersQuery(search,{
+    skip: debounced.length < 3,
+    refetchOnFocus: true
+  });
+
+  skip: boolean -> this property send request to Server if true 
+/*/

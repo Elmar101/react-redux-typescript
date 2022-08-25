@@ -2,6 +2,7 @@ import {configureStore} from "@reduxjs/toolkit";
 import CounterSlice from '../features/counter/counter-slice';
 import { UsersSlice } from "../features/rtk-query/users/users-slice";
 import { eventSlice } from '../features/rtk-query/events/event-slice';
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
 export type RootState = ReturnType<typeof store.getState>;
 //ThunkDispatch<RootStateType , ExtraArgsType , ActionType>
@@ -18,6 +19,8 @@ export const store  = configureStore({
         return getDefaultMiddleWare().concat(UsersSlice.middleware , eventSlice.middleware);
     }
 });
+
+setupListeners(store.dispatch);
 
 
 
