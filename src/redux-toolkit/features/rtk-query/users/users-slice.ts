@@ -1,16 +1,28 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { USER_API_KEY } from '../../../../ApiKey/UsersApiKey';
+import { SEARCH_USER_API_KEY, USER_API_KEY } from "../../../../ApiKey/UsersApiKey";
 import { USER_BASE_API } from "../../../../ApiKey/UsersApiKey";
 import { USER } from "../../../../models/user";
 
 export const UsersSlice = createApi({
   reducerPath: "users",
-  baseQuery: fetchBaseQuery({baseUrl: USER_BASE_API}),
+  baseQuery: fetchBaseQuery({ baseUrl: USER_BASE_API }),
   endpoints: (builder) => ({
-    fetchUsers: builder.query<USER[] , void>({
-        query: () => { return USER_API_KEY }
+    fetchUsers: builder.query<USER[], void>({
+      query: () => {
+        return USER_API_KEY;
+      },
+    }),
+    searchUsers: builder.query<void, string>({
+      query(username: string) {
+        return {
+          url: SEARCH_USER_API_KEY,
+          params: {
+            q: username
+          }
+        };
+      },
     }),
   }),
 });
 
-export const {useFetchUsersQuery} = UsersSlice;
+export const { useFetchUsersQuery, useSearchUsersQuery } = UsersSlice;

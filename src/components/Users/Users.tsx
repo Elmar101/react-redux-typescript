@@ -1,5 +1,6 @@
 import React from "react";
 import { useFetchUsersQuery } from "../../redux-toolkit/features/rtk-query/users/users-slice";
+import SearchUser from "./SearchUser";
 
 const Users = () => {
   const { data, isFetching , isError ,error} = useFetchUsersQuery();
@@ -12,6 +13,8 @@ const Users = () => {
 
   return (
     <>
+      <SearchUser/>
+      <hr/>
       <div>Users</div>
       <div style={{display: "flex" , flexWrap: "wrap"}}>{ data?.length && data.map((user)=> (<div key={`user${user.id}`} style={{width: "100px" , margin: "10px"}}>
         <h3>Id: {user.id}</h3>

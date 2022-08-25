@@ -9,11 +9,11 @@ export const eventSlice = createApi({
     endpoints: (builder) => {
         return {
             fetchEvents: builder.query<IEvent[] , void>({
-                query: () => { return EVENTS_API_KEY },
+                query: () => { return { url: EVENTS_API_KEY } },
                 providesTags: ['Event']
             }),
             fetchEvent: builder.query<IEvent , string>({
-                query:(id)=>{ return EVENT_API_KEY(id) },
+                query:(id)=>({url:  EVENT_API_KEY(id)}),
                 providesTags: ['Event']
             }),
             //mutation
