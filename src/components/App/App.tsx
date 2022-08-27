@@ -6,12 +6,22 @@ import UseCounterValueComponent from '../UseCounterValueComponent/UseCounterValu
 import './App.css';
 import Users from '../Users/Users';
 import Events from '../Events/Events';
+import ExampleOne from '../React-Hook-Forms/ExampleOne';
 
-function App() {
+/* function App() {
   return (
     <div style={{padding: "50px"}} >
-    {/*  <Recorder/>
-     <Calendar/> */}
+     <Recorder/>
+     <Calendar/> 
+     </div>
+  );
+} */
+
+
+
+/* function App() {
+  return (
+    <div style={{padding: "50px"}} >
      <Counter/>
      <hr/>
      <UseCounterValueComponent/>
@@ -24,6 +34,15 @@ function App() {
      </div>
     </div>
   );
-}
+} */
 
+
+//React-hook-forms example
+function App() {
+  return (
+    <div style={{padding: "50px"}} >
+      <ExampleOne/>
+    </div>
+  );
+}
 export default App;
