@@ -19,7 +19,8 @@ const ExampleOne = () => {
       age: "",
       fullname: { sname: ""},
       pets:[]
-    }
+    },
+    delayError: 3000
   });
 
   const {fields ,append , prepend} = useFieldArray({name:'pets' , control: control})
@@ -55,7 +56,7 @@ const ExampleOne = () => {
           placeholder='age'
         />
        <br/>{errors.age?.message && <p>{errors.age.message}</p>}<br/>
-        <input type="submit" disabled={!isValid}/>
+        <input type="submit" />
         <div>
           {
             fields.map((field , index)=> <input key={field.id} {...register(`pets.${index}.name`) } />)
