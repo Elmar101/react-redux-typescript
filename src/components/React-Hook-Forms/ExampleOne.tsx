@@ -6,17 +6,21 @@ import * as z from 'zod';
 import { string } from 'zod';
 
 let r = 0;
-const schema = z.object({
-  name: z.string().nonempty({message: "This is required"}),
-  age: z.number().min(10)
-});
 
 const ExampleOne = () => {
-  const {register , handleSubmit} = useForm({
-    resolver: zodResolver(schema),
-    shouldUseNativeValidation: true
+  const {register , handleSubmit , formState:{errors , isValid}} = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      name: "",
+      age: "",
+      fullname: {
+        sname: ""
+      }
+    }
   });
 
+  console.log("ERRORS: ", errors);
+  
   return (
     <div>
       <h1> RERENDER {r+1}</h1>
@@ -26,17 +30,28 @@ const ExampleOne = () => {
         
       })}>
         <input
-          {...register("name", {})}
+          {...register("name", {required: "name is required"})}
           type="text"
+          placeholder='name'
         />
 
-        <br/><br/>
+        <br/>{errors.name?.message && <p>{errors.name.message}</p>}<br/>
+
         <input
-          {...register("age", {valueAsNumber: true})}
-          type="number"
+          {...register("fullname.sname", {required: "sname is required"})}
+          type="text"
+          placeholder='sname'
         />
-        <br/><br/>
-        <input type="submit"/>
+
+        <br/>{errors.fullname?.sname?.message && <p>{errors.fullname?.sname?.message}</p>}<br/>
+
+        <input
+          {...register("age", {required: "enter your age" ,valueAsNumber: true , min: 5})}
+          type="number"
+          placeholder='age'
+        />
+       <br/>{errors.age?.message && <p>{errors.age.message}</p>}<br/>
+        <input type="submit" disabled={!isValid}/>
     </form>
     </div>
   )
