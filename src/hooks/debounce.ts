@@ -6,7 +6,7 @@ interface IDebounced {
 
 export const useDebounce = (value: string , delay: number = 300): IDebounced  => {    
     const [debounced , setDebounced] = useState<string>(value);
-    
+
     useEffect(()=>{
         const handler = setTimeout(()=> {
             setDebounced(value);

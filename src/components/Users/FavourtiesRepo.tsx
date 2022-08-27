@@ -7,7 +7,7 @@ const FavourtiesRepo:React.FC = () => {
   return (
     <div style={{background:"blue" , color: "#fff"}}>
         <h1> FAVOURITIES REPO</h1>
-        <h6>{favourities.length > 0 ? favourities.map(favourty=> <h3>{favourty}</h3>): "NO-ITEMS"}</h6>
+        <h3>{favourities.length > 0 ? favourities.map(favourty=> <h6 key={favourty}>{favourty}</h6>): "NO-ITEMS"}</h3>
      </div>
   )
 }
