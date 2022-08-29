@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ExampleOne.css";
 import { useFieldArray, useForm } from "react-hook-form";
-import { watch } from 'fs';
+import { useEffect } from 'react';
 
 let r = 0;
 interface IFORMVALUE {
@@ -27,14 +27,24 @@ const ExampleOne = () => {
   });
 
   const {fields ,append , prepend} = useFieldArray({name:'pets' , control: control})
-  console.log("ERRORS: ", errors);
-  register("test")
+  //console.log("ERRORS: ", errors);
+  //register("test")
   //watch 
-  const [firstname , age] = watch(['firstname', 'age']);
-  console.log("FIRSTNAME:", firstname , " AGE: ", age);
+  //const [firstname , age] = watch(['firstname', 'age']);
+ // console.log("FIRSTNAME:", firstname , " AGE: ", age);
+
+  //watch subscribe and unsubscribe very usefull
+  useEffect(()=> {
+    const subscribe  = watch((data)=> {
+      console.log("DATA IS:" , data);
+    });
+    return ()=> {
+      subscribe.unsubscribe();
+    }
+  },[watch]);
   return (
     <div>
-      <h1> RERENDER {r+1}</h1>
+      <h1> RERENDER {r++}</h1>
 
       <form onSubmit={handleSubmit((data)=>{
         console.log(data);
