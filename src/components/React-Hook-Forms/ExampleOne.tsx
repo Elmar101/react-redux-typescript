@@ -34,14 +34,24 @@ const ExampleOne = () => {
  // console.log("FIRSTNAME:", firstname , " AGE: ", age);
 
   //watch subscribe and unsubscribe very usefull
-  useEffect(()=> {
+ /*  useEffect(()=> {
     const subscribe  = watch((data)=> {
       console.log("DATA IS:" , data);
     });
     return ()=> {
       subscribe.unsubscribe();
     }
-  },[watch]);
+  },[watch]); */
+
+  const [firstname , age] = watch(['firstname', 'age']);
+  useEffect(()=> {
+    const subscribe  = watch(()=> {
+      console.log("FIRSTNAME:", firstname , " AGE: ", age);
+    });
+    return ()=> {
+      subscribe.unsubscribe();
+    }
+  },[firstname,age]);
   return (
     <div>
       <h1> RERENDER {r++}</h1>
