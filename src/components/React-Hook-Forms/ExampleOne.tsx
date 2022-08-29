@@ -1,6 +1,7 @@
 import React from 'react'
 import "./ExampleOne.css";
 import { useFieldArray, useForm } from "react-hook-form";
+import { watch } from 'fs';
 
 let r = 0;
 interface IFORMVALUE {
@@ -10,22 +11,27 @@ interface IFORMVALUE {
     sname: string
   },
   pets: {name: string}[]
+  test: string
 }
 const ExampleOne = () => {
-  const {control, register , handleSubmit , formState:{errors , isValid}} = useForm<IFORMVALUE>({
+  const {control, register , handleSubmit , formState:{errors , isValid}, watch} = useForm<IFORMVALUE>({
     mode: 'onChange',
     defaultValues: {
       firstname: "",
       age: "",
       fullname: { sname: ""},
-      pets:[]
+      pets:[],
+      test: ""
     },
-    delayError: 3000
+    delayError: 1000
   });
 
   const {fields ,append , prepend} = useFieldArray({name:'pets' , control: control})
   console.log("ERRORS: ", errors);
-  
+  register("test")
+  //watch 
+  const [firstname , age] = watch(['firstname', 'age']);
+  console.log("FIRSTNAME:", firstname , " AGE: ", age);
   return (
     <div>
       <h1> RERENDER {r+1}</h1>
@@ -56,7 +62,7 @@ const ExampleOne = () => {
           placeholder='age'
         />
        <br/>{errors.age?.message && <p>{errors.age.message}</p>}<br/>
-        <input type="submit" />
+        <input type="submit" disabled={!isValid}/>
         <div>
           {
             fields.map((field , index)=> <input key={field.id} {...register(`pets.${index}.name`) } />)
